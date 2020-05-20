@@ -1,3 +1,17 @@
 body {
     width: 100%;
 }
+
+#story-display {
+    font-size: 50px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    font-size: 10px;
+    margin-left: 25px;
+  }
