@@ -1,23 +1,11 @@
+var MatLibs = [
+    "I have a [noun] that will [verb] if you run [adjective]",
+    "It\'s [adjective] that we don't know what we've got until we [verb] it, but it's also true that we don\'t know what we\'ve been missing until [noun] arrives",
+    "The average [noun] would rather have beauty than brains, because the average man can [verb] [adjective] than he can think",
+    "USA Today has [verb] out with a new survey: Apparently three out of four people make up 75 percent of the [adjective] [noun]",
+    "You have the right to [verb] [adjective]. Anything you say will be misquoted, then used against[noun]"
+]
 
-
-function MatLibs(noun, verb, adjective) {
-         this.noun = noun,
-        this.verb = verb,
-        this.adjective = adjective,
-        this.story = [
-            "I have a [noun] that will [verb] if you run [adjective]",
-            "It\'s [adjective] that we don't know what we've got until we [verb] it, but it's also true that we don\'t know what we\'ve been missing until [noun] arrives",
-            "The average [noun] would rather have beauty than brains, because the average man can[verb][adjective] than he can think",
-            "USA Today has [verb] out with a new survey: Apparently three out of four people make up 75 percent of the [adjective] [noun]",
-            "You have the right to [verb] [adjective]. Anything you say will be misquoted, then used against[noun]"
-        ]
-
-}
-
-
-var noun = [];
-var verb = [];
-var adjective = [];
 
 $("#submit").on("click", function () {
 
@@ -25,13 +13,14 @@ $("#submit").on("click", function () {
     var verbInput = $("#verb-input").val();
     var adjectiveInput = $("#adjective-input").val();
 
-    noun.push(nounInput);
-    verb.push(verbInput);
-    adjective.push(adjectiveInput);
+    var pickedStory = Math.floor(Math.random() * MatLibs.length);
+    console.log(MatLibs[pickedStory]);
 
-    console.log(noun);
-    console.log(verb);
-    console.log(adjective);
+    MatLibs[pickedStory] = MatLibs[pickedStory].replace("[noun]", nounInput);
+    MatLibs[pickedStory] = MatLibs[pickedStory].replace("[verb]", verbInput);
+    MatLibs[pickedStory] = MatLibs[pickedStory].replace("[adjective]", adjectiveInput);
+
+    $("#story-display").html(MatLibs[pickedStory]);
 
     return false;
 });
