@@ -1,6 +1,6 @@
 body {
     width: 100%;
-    
+    background-image: url("background.jpg");
 }
 
 #story-display {
@@ -15,4 +15,9 @@ footer {
     text-align: left;
     font-size: 10px;
     margin-left: 25px;
+  }
+
+  .jumbotron, .panel-body {
+      background-color: yellow !important;
+      opacity: 80%;
   }
